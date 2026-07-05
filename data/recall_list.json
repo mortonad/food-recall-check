@@ -63,13 +63,25 @@
     "url": "https://www.fds.taichung.gov.tw/1210187/1210197/1210198/nodeCp?nodeId=3312580"
    }
   ],
-  "pipeline_last_run": "2026-07-05 21:26"
+  "pipeline_last_run": "2026-07-06 07:45"
  },
-"official_docs": [
-  { "name": "油品品項名單", "url": "https://www.taichung.gov.tw/media/1433651/%E6%B2%B9%E5%93%81%E5%93%81%E9%A0%854new.pdf" },
-  { "name": "福壽下游名單（1150702）", "url": "https://www.taichung.gov.tw/media/1433650/%E7%A6%8F%E5%A3%BD%E4%B8%8B%E6%B8%B8%E5%90%8D%E5%96%AE-1150702.pdf" },
-  { "name": "福懋下游名單（散裝・依縣市）", "url": "https://www.taichung.gov.tw/media/1433649/%E7%A6%8F%E6%87%8B%E4%B8%8B%E6%B8%B8%E5%90%8D%E5%96%AE-%E4%BE%9D%E7%B8%A3%E5%B8%82%E6%8E%92%E5%88%97-%E6%95%A3%E8%A3%9D.pdf" },
-  { "name": "福懋下游名單（桶裝・依縣市）", "url": "https://www.taichung.gov.tw/media/1433648/%E7%A6%8F%E6%87%8B%E4%B8%8B%E6%B8%B8%E5%90%8D%E5%96%AE-%E4%BE%9D%E7%B8%A3%E5%B8%82%E6%8E%92%E5%88%97-%E6%A1%B6%E8%A3%9D.pdf" }
+ "official_docs": [
+  {
+   "name": "油品品項名單",
+   "url": "https://www.taichung.gov.tw/media/1433651/%E6%B2%B9%E5%93%81%E5%93%81%E9%A0%854new.pdf"
+  },
+  {
+   "name": "福壽下游名單（1150702）",
+   "url": "https://www.taichung.gov.tw/media/1433650/%E7%A6%8F%E5%A3%BD%E4%B8%8B%E6%B8%B8%E5%90%8D%E5%96%AE-1150702.pdf"
+  },
+  {
+   "name": "福懋下游名單（散裝・依縣市）",
+   "url": "https://www.taichung.gov.tw/media/1433649/%E7%A6%8F%E6%87%8B%E4%B8%8B%E6%B8%B8%E5%90%8D%E5%96%AE-%E4%BE%9D%E7%B8%A3%E5%B8%82%E6%8E%92%E5%88%97-%E6%95%A3%E8%A3%9D.pdf"
+  },
+  {
+   "name": "福懋下游名單（桶裝・依縣市）",
+   "url": "https://www.taichung.gov.tw/media/1433648/%E7%A6%8F%E6%87%8B%E4%B8%8B%E6%B8%B8%E5%90%8D%E5%96%AE-%E4%BE%9D%E7%B8%A3%E5%B8%82%E6%8E%92%E5%88%97-%E6%A1%B6%E8%A3%9D.pdf"
+  }
  ],
  "items": [
   {
@@ -304,5 +316,30 @@
    "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
   }
  ],
- "auto_feed": []
+ "auto_feed": [
+  {
+   "title": "📄 台中市府文件：福懋下游名單-依縣市排列-桶裝",
+   "url": "http://www.taichung.gov.tw/media/1433648/福懋下游名單-依縣市排列-桶裝.pdf",
+   "date": "2026-07-06",
+   "collected_at": "2026-07-06 07:45"
+  },
+  {
+   "title": "📄 台中市府文件：福懋下游名單-依縣市排列-散裝",
+   "url": "http://www.taichung.gov.tw/media/1433649/福懋下游名單-依縣市排列-散裝.pdf",
+   "date": "2026-07-06",
+   "collected_at": "2026-07-06 07:45"
+  },
+  {
+   "title": "📄 台中市府文件：福壽下游名單-1150702",
+   "url": "http://www.taichung.gov.tw/media/1433650/福壽下游名單-1150702.pdf",
+   "date": "2026-07-06",
+   "collected_at": "2026-07-06 07:45"
+  },
+  {
+   "title": "📄 台中市府文件：油品品項4new",
+   "url": "http://www.taichung.gov.tw/media/1433651/油品品項4new.pdf",
+   "date": "2026-07-06",
+   "collected_at": "2026-07-06 07:45"
+  }
+ ]
 }
