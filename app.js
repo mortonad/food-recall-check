@@ -71,7 +71,12 @@
     + '#frc-app .feed h4{font-size:14px;color:var(--brandd);margin:0 0 6px}'
     + '#frc-app .feed li{font-size:13px;margin:5px 0 5px 16px}'
     + '#frc-app .feed a{color:var(--brandd)}'
-    + '#frc-app .feed .dt{color:var(--sub);font-size:12px;margin-left:6px}';
+    + '#frc-app .feed .dt{color:var(--sub);font-size:12px;margin-left:6px}'
+    + '#frc-app .docsbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0}'
+    + '#frc-app .docsbox h4{font-size:15px;margin:0 0 6px}'
+    + '#frc-app .docnote{font-size:12.5px;color:var(--sub);margin:0 0 10px;line-height:1.6}'
+    + '#frc-app .docbtn{display:inline-block;margin:4px 6px 4px 0;padding:8px 14px;border:1.5px solid var(--brand);border-radius:99px;color:var(--brandd);text-decoration:none;font-size:13.5px;font-weight:700}'
+    + '#frc-app .docbtn:hover{background:#eef3fe}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   root.innerHTML = ''
@@ -88,6 +93,7 @@
     + '<div style="margin-top:22px"><b style="font-size:15px">📖 怎麼看我手上這瓶</b><div id="frc-guide"></div>'
     + '<details><summary>☎️ 客服與官方專線</summary><ul id="frc-tel"></ul></details>'
     + '<details><summary>🔗 官方公告原始連結</summary><ul id="frc-src"></ul></details></div>'
+    + '<div id="frc-docs"></div>'
     + '<div class="dis" id="frc-dis"></div>'
     + '<div class="ft">資料整理：Morton｜<span id="frc-up"></span><br>'
     + '<a class="cta" href="https://github.com/mortonad/food-recall-check" target="_blank" rel="noopener">🛰️ 想在下次事件自動收到通知？看看食安雷達</a></div>';
@@ -176,6 +182,17 @@
           }).join('')
         + '</ul></div>';
     }
+    // 📄 官方原始文件區（JSON 的 official_docs 有內容才出現；文件性質＝下游進貨名單，文案固定中性）
+    var docs = d.official_docs || [];
+    if (docs.length) {
+      $('frc-docs').innerHTML = '<div class="docsbox"><h4>📄 官方原始文件（地方政府公布之下游名單）</h4>'
+        + '<p class="docnote">名單所列為「曾進貨相關油品」之業者，<b>不代表其產品違規</b>；依主管機關說明，多數業者已完成下架退回，實際情形以官方最新公告為準。</p>'
+        + docs.map(function (x) {
+            return '<a class="docbtn" href="' + x.url + '" target="_blank" rel="noopener">' + x.name + '</a>';
+          }).join('')
+        + '</div>';
+    }
+
     // 🙋 常駐回報入口（有填 FORM_URL 才出現）：資料指正、新增品項都走這
     if (FORM_URL) {
       var ftEl = document.querySelector('#frc-app .ft');
