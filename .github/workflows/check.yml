@@ -1,0 +1,29 @@
+# 中鏢查詢器 每日看門狗
+# 放置路徑（新 repo 內）：.github/workflows/check.yml
+name: 回收名單每日看門狗
+
+on:
+  schedule:
+    - cron: "0 23 * * *"    # UTC 23:00 = 台北 07:00
+  workflow_dispatch: {}      # 可手動執行測試
+
+permissions:
+  contents: write
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出 repo
+        uses: actions/checkout@v5
+
+      - name: 驗證名單＋偵測官方新公告
+        run: python3 update_recall.py
+
+      - name: 提交狀態檔（alert / seen）
+        run: |
+          git config user.name "recall-watchdog"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet && echo "無變化" || git commit -m "watchdog: $(date -u +%F)"
+          git push
