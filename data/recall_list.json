@@ -1,51 +1,302 @@
 {
-  "meta": {
-    "event": "2026-07 中聯油脂大豆沙拉油苯駢芘超標案",
-    "updated": "2026-07-05",
-    "official_scope": "第一層＝食藥署公布強制下架回收 18 品項 30 批號（中聯批號 315-1150404 及其分裝產品）；第二層＝下游業者自主性回收（官方稱風險低、不強制、不公布名單）",
-    "disclaimer": "本頁為公開官方公告與品牌聲明之整理，非官方網站；查無結果≠保證安全，僅代表不在已公開名單中。一切以食藥署與各品牌最新公告為準。",
-    "hotlines": [
-      { "name": "泰山客服", "tel": "0800-079080" },
-      { "name": "福壽客服", "tel": "0800-236699" },
-      { "name": "福懋客服", "tel": "0800-888255" },
-      { "name": "消費者服務專線", "tel": "1950" },
-      { "name": "食安專線", "tel": "1919" }
-    ],
-    "id_guide": [
-      { "brand": "泰山", "how": "看瓶身印製號碼（批號）；但泰山退費不限批號——2026 年 4～6 月購買皆可退" },
-      { "brand": "福壽", "how": "看瓶/桶身批號：C 開頭＝沙拉油、BL 開頭＝香油；18L 桶裝僅售企業端、未進零售" },
-      { "brand": "福懋", "how": "看批號或有效日期：益康系列效期 2027/4/10～14、一級黃豆油效期 2026/10/4" }
-    ],
-    "refund_deadline": "三品牌退費受理原則至 2026/9/30（以各品牌公告為準）",
-    "sources": [
-      { "name": "食藥署 7/1 新聞稿", "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379" },
-      { "name": "泰山退貨公告＋表單", "url": "https://www.taisun.com.tw/260702/" },
-      { "name": "福壽退貨辦法", "url": "https://www.fwusow.com.tw/index.php/news/item/2306" },
-      { "name": "福懋公告", "url": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source=" },
-      { "name": "台中市食安處下游名單", "url": "https://www.fds.taichung.gov.tw/1210187/1210197/1210198/nodeCp?nodeId=3312580" }
-    ]
+ "meta": {
+  "event": "2026-07 中聯油脂大豆沙拉油苯駢芘超標案",
+  "updated": "2026-07-05",
+  "official_scope": "第一層＝食藥署公布強制下架回收 18 品項 30 批號（中聯批號 315-1150404 及其分裝產品）；第二層＝下游業者自主性回收（官方稱風險低、不強制、不公布名單）",
+  "disclaimer": "本頁為公開官方公告與品牌聲明之整理，非官方網站；查無結果≠保證安全，僅代表不在已公開名單中。一切以食藥署與各品牌最新公告為準。",
+  "hotlines": [
+   {
+    "name": "泰山客服",
+    "tel": "0800-079080"
+   },
+   {
+    "name": "福壽客服",
+    "tel": "0800-236699"
+   },
+   {
+    "name": "福懋客服",
+    "tel": "0800-888255"
+   },
+   {
+    "name": "消費者服務專線",
+    "tel": "1950"
+   },
+   {
+    "name": "食安專線",
+    "tel": "1919"
+   }
+  ],
+  "id_guide": [
+   {
+    "brand": "泰山",
+    "how": "看瓶身印製號碼（批號）；但泰山退費不限批號——2026 年 4～6 月購買皆可退"
+   },
+   {
+    "brand": "福壽",
+    "how": "看瓶/桶身批號：C 開頭＝沙拉油、BL 開頭＝香油；18L 桶裝僅售企業端、未進零售"
+   },
+   {
+    "brand": "福懋",
+    "how": "看批號或有效日期：益康系列效期 2027/4/10～14、一級黃豆油效期 2026/10/4"
+   }
+  ],
+  "refund_deadline": "三品牌退費受理原則至 2026/9/30（以各品牌公告為準）",
+  "sources": [
+   {
+    "name": "食藥署 7/1 新聞稿",
+    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379"
+   },
+   {
+    "name": "泰山退貨公告＋表單",
+    "url": "https://www.taisun.com.tw/260702/"
+   },
+   {
+    "name": "福壽退貨辦法",
+    "url": "https://www.fwusow.com.tw/index.php/news/item/2306"
+   },
+   {
+    "name": "福懋公告",
+    "url": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source="
+   },
+   {
+    "name": "台中市食安處下游名單",
+    "url": "https://www.fds.taichung.gov.tw/1210187/1210197/1210198/nodeCp?nodeId=3312580"
+   }
+  ],
+  "pipeline_last_run": "2026-07-05 21:26"
+ },
+ "items": [
+  {
+   "tier": 1,
+   "brand": "中聯油脂",
+   "product": "大豆沙拉油（原料油）",
+   "spec": "散裝共 1,300 公噸",
+   "batch": "批號 315-1150404｜製造 2026-04-04｜效期 2026-09-30",
+   "status": "確認超標（BaP 8.1 µg/kg，限量 2.0）",
+   "maker": "中聯油脂",
+   "refund": "B2B 原料——消費者請向下游品牌辦理退費",
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379"
   },
-  "items": [
-    { "tier": 1, "brand": "中聯油脂", "product": "大豆沙拉油（原料油）", "spec": "散裝共 1,300 公噸", "batch": "批號 315-1150404｜製造 2026-04-04｜效期 2026-09-30", "status": "確認超標（BaP 8.1 µg/kg，限量 2.0）", "maker": "中聯油脂", "refund": "B2B 原料——消費者請向下游品牌辦理退費", "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379" },
-    { "tier": 1, "brand": "泰山", "product": "金酥耐炸油", "spec": "18L", "batch": "批號 2027040801", "status": "官方令下架回收", "maker": "泰山企業", "refund": "不限批號：2026/4～6 月購買皆可退（至 9/30）｜表單 forms.gle/9rnmkxBZXuFSoeHF7｜0800-079080，無發票可到府收件", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "沙拉油", "spec": "18L", "batch": "批號 2027040901", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法（不限批號、至 9/30）", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "不飽和大豆沙拉油（新版）", "spec": "2.6L×6", "batch": "批號 2027040901", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "環保鐵桶沙拉油", "spec": "18kg", "batch": "批號 2027040901", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "精選蔬菜油", "spec": "3L×6", "batch": "批號 2027072506", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "好理調合油", "spec": "2L×6", "batch": "批號 2027072506", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "花生風味調和油", "spec": "2L×6", "batch": "批號 2027100901", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "大豆沙拉油（新版）", "spec": "0.6L×12", "batch": "批號 2027041301", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法（OK 超商購買可憑發票退）", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "歐式果實精華調合油", "spec": "1.5L×6", "batch": "批號 2027101301", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "泰山", "product": "好理調合油", "spec": "0.6L×24", "batch": "批號 2027072504", "status": "官方令下架回收", "maker": "泰山企業", "refund": "同泰山退費辦法", "source": "https://www.taisun.com.tw/260702/" },
-    { "tier": 1, "brand": "福壽", "product": "福壽大豆沙拉油", "spec": "3L", "batch": "批號 C1140426K、C1160426K（後者效期 2027/04/15）", "status": "官方令下架回收", "maker": "福壽實業", "refund": "0800-236699｜開封/空桶皆可退｜五股・沙鹿總部・台中港廠・橋頭・大社五據點或到府收件（運費公司付）｜至 9/30", "source": "https://www.fwusow.com.tw/index.php/news/item/2306" },
-    { "tier": 1, "brand": "福壽", "product": "福壽大豆沙拉油", "spec": "18L", "batch": "批號 C2140426O/P、C2150426O/P（效 2027/04/14）、C2160426O/P（效 2027/04/15）、C2210426O", "status": "官方令下架回收（僅售企業端，未進零售）", "maker": "福壽實業", "refund": "同福壽退費辦法", "source": "https://www.fwusow.com.tw/index.php/news/item/2306" },
-    { "tier": 1, "brand": "福壽", "product": "福壽健味香油", "spec": "3L", "batch": "批號 BL150426L（效 2028/04/05）、BL240426L", "status": "官方令下架回收", "maker": "福壽實業", "refund": "同福壽退費辦法", "source": "https://www.fwusow.com.tw/index.php/news/item/2306" },
-    { "tier": 1, "brand": "福懋", "product": "益康大豆沙拉油", "spec": "18L", "batch": "批號 20270411000408｜效期 2027/04/10、04/11", "status": "官方令下架回收", "maker": "福懋油脂", "refund": "0800-888255｜憑問題批次空桶退款，未用完先致電確認｜至 9/30", "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source=" },
-    { "tier": 1, "brand": "福懋", "product": "益康大豆沙拉油", "spec": "18kg", "batch": "批號 20270413000408｜效期 2027/04/13", "status": "官方令下架回收", "maker": "福懋油脂", "refund": "同福懋退費辦法", "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source=" },
-    { "tier": 1, "brand": "福懋", "product": "益康烹調油", "spec": "18L", "batch": "批號 20270413000403｜效期 2027/04/13、04/14", "status": "官方令下架回收", "maker": "福懋油脂", "refund": "同福懋退費辦法", "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source=" },
-    { "tier": 1, "brand": "福懋", "product": "一級黃豆油", "spec": "散裝", "batch": "批號 202604091315｜效期 2026/10/04（出貨 2026/4/8～10）", "status": "官方令下架回收", "maker": "福懋油脂", "refund": "B2B 散裝，向福懋洽退", "source": "https://health.tvbs.com.tw/nutrition/364121" },
-    { "tier": 2, "brand": "味王", "product": "泡麵 8 款（原汁牛肉湯麵等）", "spec": "近 2 萬箱", "batch": null, "status": "業者預防性自主回收（非官方強制）", "maker": "味王", "refund": "依業者公告", "source": "https://www.cna.com.tw/news/ahel/202607030268.aspx" },
-    { "tier": 2, "brand": "聯華食品", "product": "冷凍飯糰 2 款", "spec": null, "batch": null, "status": "業者預防性停售回收（可樂果/卡迪那未用問題油）", "maker": "聯華食品", "refund": "依業者公告", "source": "https://www.cna.com.tw/news/afe/202607030218.aspx" },
-    { "tier": 2, "brand": "老協珍", "product": "TOMMI 湯米白醬鱈魚排米漢堡", "spec": "已回收 2,067 份", "batch": null, "status": "業者預防性自主回收", "maker": "老協珍", "refund": "依業者公告", "source": "https://www.businessweekly.com.tw/focus/blog/3021862" }
-  ]
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "金酥耐炸油",
+   "spec": "18L",
+   "batch": "批號 2027040801",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "不限批號：2026/4～6 月購買皆可退（至 9/30）｜表單 forms.gle/9rnmkxBZXuFSoeHF7｜0800-079080，無發票可到府收件",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "沙拉油",
+   "spec": "18L",
+   "batch": "批號 2027040901",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法（不限批號、至 9/30）",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "不飽和大豆沙拉油（新版）",
+   "spec": "2.6L×6",
+   "batch": "批號 2027040901",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "環保鐵桶沙拉油",
+   "spec": "18kg",
+   "batch": "批號 2027040901",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "精選蔬菜油",
+   "spec": "3L×6",
+   "batch": "批號 2027072506",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "好理調合油",
+   "spec": "2L×6",
+   "batch": "批號 2027072506",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "花生風味調和油",
+   "spec": "2L×6",
+   "batch": "批號 2027100901",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "大豆沙拉油（新版）",
+   "spec": "0.6L×12",
+   "batch": "批號 2027041301",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法（OK 超商購買可憑發票退）",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "歐式果實精華調合油",
+   "spec": "1.5L×6",
+   "batch": "批號 2027101301",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "泰山",
+   "product": "好理調合油",
+   "spec": "0.6L×24",
+   "batch": "批號 2027072504",
+   "status": "官方令下架回收",
+   "maker": "泰山企業",
+   "refund": "同泰山退費辦法",
+   "source": "https://www.taisun.com.tw/260702/"
+  },
+  {
+   "tier": 1,
+   "brand": "福壽",
+   "product": "福壽大豆沙拉油",
+   "spec": "3L",
+   "batch": "批號 C1140426K、C1160426K（後者效期 2027/04/15）",
+   "status": "官方令下架回收",
+   "maker": "福壽實業",
+   "refund": "0800-236699｜開封/空桶皆可退｜五股・沙鹿總部・台中港廠・橋頭・大社五據點或到府收件（運費公司付）｜至 9/30",
+   "source": "https://www.fwusow.com.tw/index.php/news/item/2306"
+  },
+  {
+   "tier": 1,
+   "brand": "福壽",
+   "product": "福壽大豆沙拉油",
+   "spec": "18L",
+   "batch": "批號 C2140426O/P、C2150426O/P（效 2027/04/14）、C2160426O/P（效 2027/04/15）、C2210426O",
+   "status": "官方令下架回收（僅售企業端，未進零售）",
+   "maker": "福壽實業",
+   "refund": "同福壽退費辦法",
+   "source": "https://www.fwusow.com.tw/index.php/news/item/2306"
+  },
+  {
+   "tier": 1,
+   "brand": "福壽",
+   "product": "福壽健味香油",
+   "spec": "3L",
+   "batch": "批號 BL150426L（效 2028/04/05）、BL240426L",
+   "status": "官方令下架回收",
+   "maker": "福壽實業",
+   "refund": "同福壽退費辦法",
+   "source": "https://www.fwusow.com.tw/index.php/news/item/2306"
+  },
+  {
+   "tier": 1,
+   "brand": "福懋",
+   "product": "益康大豆沙拉油",
+   "spec": "18L",
+   "batch": "批號 20270411000408｜效期 2027/04/10、04/11",
+   "status": "官方令下架回收",
+   "maker": "福懋油脂",
+   "refund": "0800-888255｜憑問題批次空桶退款，未用完先致電確認｜至 9/30",
+   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source="
+  },
+  {
+   "tier": 1,
+   "brand": "福懋",
+   "product": "益康大豆沙拉油",
+   "spec": "18kg",
+   "batch": "批號 20270413000408｜效期 2027/04/13",
+   "status": "官方令下架回收",
+   "maker": "福懋油脂",
+   "refund": "同福懋退費辦法",
+   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source="
+  },
+  {
+   "tier": 1,
+   "brand": "福懋",
+   "product": "益康烹調油",
+   "spec": "18L",
+   "batch": "批號 20270413000403｜效期 2027/04/13、04/14",
+   "status": "官方令下架回收",
+   "maker": "福懋油脂",
+   "refund": "同福懋退費辦法",
+   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source="
+  },
+  {
+   "tier": 1,
+   "brand": "福懋",
+   "product": "一級黃豆油",
+   "spec": "散裝",
+   "batch": "批號 202604091315｜效期 2026/10/04（出貨 2026/4/8～10）",
+   "status": "官方令下架回收",
+   "maker": "福懋油脂",
+   "refund": "B2B 散裝，向福懋洽退",
+   "source": "https://health.tvbs.com.tw/nutrition/364121"
+  },
+  {
+   "tier": 2,
+   "brand": "味王",
+   "product": "泡麵 8 款（原汁牛肉湯麵等）",
+   "spec": "近 2 萬箱",
+   "batch": null,
+   "status": "業者預防性自主回收（非官方強制）",
+   "maker": "味王",
+   "refund": "依業者公告",
+   "source": "https://www.cna.com.tw/news/ahel/202607030268.aspx"
+  },
+  {
+   "tier": 2,
+   "brand": "聯華食品",
+   "product": "冷凍飯糰 2 款",
+   "spec": null,
+   "batch": null,
+   "status": "業者預防性停售回收（可樂果/卡迪那未用問題油）",
+   "maker": "聯華食品",
+   "refund": "依業者公告",
+   "source": "https://www.cna.com.tw/news/afe/202607030218.aspx"
+  },
+  {
+   "tier": 2,
+   "brand": "老協珍",
+   "product": "TOMMI 湯米白醬鱈魚排米漢堡",
+   "spec": "已回收 2,067 份",
+   "batch": null,
+   "status": "業者預防性自主回收",
+   "maker": "老協珍",
+   "refund": "依業者公告",
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+  }
+ ],
+ "auto_feed": []
 }
