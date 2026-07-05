@@ -17,6 +17,15 @@ jobs:
       - name: 取出 repo
         uses: actions/checkout@v5
 
+      - name: 檔案齊全檢查（缺什麼直接告訴你）
+        run: |
+          missing=0
+          for f in update_recall.py data/recall_list.json app.js; do
+            if [ ! -f "$f" ]; then echo "❌ repo 缺檔案：$f ——請照部署教學 Phase 1 用 Add file 上傳"; missing=1; fi
+          done
+          if [ "$missing" -eq 0 ]; then echo "✅ 檔案齊全"; fi
+          exit $missing
+
       - name: 驗證名單＋偵測官方新公告
         run: python3 update_recall.py
 
