@@ -5,7 +5,7 @@
   var RAW = 'https://raw.githubusercontent.com/mortonad/food-recall-check/main/';
 
   // ══════════ v3 CONFIG：填了才啟用，留空自動隱藏該功能 ══════════
-  var GA4_ID = '';              // GA4 評估 ID（G-XXXXXXXXXX）→ 啟用流量與查詢詞統計
+  var GA4_ID = 'G-R4L06RN02Q';              // GA4 評估 ID（G-XXXXXXXXXX）→ 啟用流量與查詢詞統計
   var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScKOdTNi_lGwy99HK8tobL5P1QpVUKsbigXYYhXaeDbGjwt6w/viewform';            // 回報表單網址（https://docs.google.com/forms/d/e/xxxx/viewform）
   var FORM_ENTRY_PRODUCT = 'entry.1850068140';  // 表單「品名」題的 entry ID（例：entry.123456789）→ 查無時自動帶入
   var FORM_ENTRY_TYPE = 'entry.1056333188';     // 表單「你想回報什麼」單選題的 entry ID → 卡片「回報此筆有誤」預填用
