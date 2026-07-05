@@ -8,6 +8,7 @@
   var GA4_ID = '';              // GA4 評估 ID（G-XXXXXXXXXX）→ 啟用流量與查詢詞統計
   var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScKOdTNi_lGwy99HK8tobL5P1QpVUKsbigXYYhXaeDbGjwt6w/viewform';            // 回報表單網址（https://docs.google.com/forms/d/e/xxxx/viewform）
   var FORM_ENTRY_PRODUCT = 'entry.1850068140';  // 表單「品名」題的 entry ID（例：entry.123456789）→ 查無時自動帶入
+  var FORM_ENTRY_TYPE = 'entry.1056333188';     // 表單「你想回報什麼」單選題的 entry ID → 卡片「回報此筆有誤」預填用
   // ═══════════════════════════════════════════════════════════
 
   // GA4：載入與事件（沒填 GA4_ID 就完全不載入）
@@ -22,10 +23,11 @@
     track = function (name, params) { try { window.gtag('event', name, params || {}); } catch (e) {} };
   }
 
-  function reportUrl(term) {
+  function reportUrl(term, type) {
     if (!FORM_URL) return '';
     return FORM_URL + (FORM_URL.indexOf('?') === -1 ? '?' : '&') + 'usp=pp_url'
-      + (FORM_ENTRY_PRODUCT && term ? '&' + FORM_ENTRY_PRODUCT + '=' + encodeURIComponent(term) : '');
+      + (FORM_ENTRY_PRODUCT && term ? '&' + FORM_ENTRY_PRODUCT + '=' + encodeURIComponent(term) : '')
+      + (FORM_ENTRY_TYPE && type ? '&' + FORM_ENTRY_TYPE + '=' + encodeURIComponent(type) : '');
   }
   var root = document.getElementById('frc-app');
   if (!root) { root = document.createElement('div'); root.id = 'frc-app'; document.body.appendChild(root); }
@@ -118,7 +120,9 @@
         + '<div class="mt">' + i.status + '｜製造/供應：' + i.maker + '</div>'
         + (i.batch ? '<div class="bt">🔍 ' + i.batch + '</div>' : '')
         + (i.refund ? '<div class="rf">💰 退費：' + i.refund + '</div>' : '')
-        + '<div class="sc"><a href="' + i.source + '" target="_blank" rel="noopener">來源公告 ↗</a></div></div>';
+        + '<div class="sc"><a href="' + i.source + '" target="_blank" rel="noopener">來源公告 ↗</a>'
+        + (FORM_URL ? '　·　<a href="' + reportUrl(i.brand + '｜' + i.product, '名單資訊有誤') + '" target="_blank" rel="noopener" style="color:var(--sub)">🙋 回報此筆有誤</a>' : '')
+        + '</div></div>';
     }).join('');
   }
 
