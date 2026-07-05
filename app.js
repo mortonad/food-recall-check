@@ -9,7 +9,15 @@
   var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScKOdTNi_lGwy99HK8tobL5P1QpVUKsbigXYYhXaeDbGjwt6w/viewform';            // 回報表單網址（https://docs.google.com/forms/d/e/xxxx/viewform）
   var FORM_ENTRY_PRODUCT = 'entry.1850068140';  // 表單「品名」題的 entry ID（例：entry.123456789）→ 查無時自動帶入
   var FORM_ENTRY_TYPE = 'entry.1056333188';     // 表單「你想回報什麼」單選題的 entry ID → 卡片「回報此筆有誤」預填用
+  var SITE_URL = 'https://sites.google.com/view/oil2026';  // 正式網址（嵌入沙盒拿不到真網址，必須寫死）
   // ═══════════════════════════════════════════════════════════
+
+  // LINE 分享：line.me/R/msg/text 官方 scheme——文字＋網址一起進聊天室（手機直開 LINE）
+  // （註：social-plugins 的 lineit/share 不支援 text 參數，勿用）
+  function lineShare(text) {
+    return 'https://line.me/R/msg/text/?' + encodeURIComponent(text + '\n' + SITE_URL);
+  }
+  var LINE_GENERIC = lineShare('⚠️ 食安注意｜家裡那瓶油中鏢了嗎？\n輸入品名 30 秒查回收名單＋退費管道（免費）：');
 
   // GA4：載入與事件（沒填 GA4_ID 就完全不載入）
   var track = function () {};
@@ -76,7 +84,9 @@
     + '#frc-app .docsbox h4{font-size:15px;margin:0 0 6px}'
     + '#frc-app .docnote{font-size:12.5px;color:var(--sub);margin:0 0 10px;line-height:1.6}'
     + '#frc-app .docbtn{display:inline-block;margin:4px 6px 4px 0;padding:8px 14px;border:1.5px solid var(--brand);border-radius:99px;color:var(--brandd);text-decoration:none;font-size:13.5px;font-weight:700}'
-    + '#frc-app .docbtn:hover{background:#eef3fe}';
+    + '#frc-app .docbtn:hover{background:#eef3fe}'
+    + '#frc-app .linebtn{display:block;text-align:center;margin:12px 0 2px;padding:13px 16px;background:#06C755;color:#fff;border-radius:12px;text-decoration:none;font-size:16px;font-weight:700}'
+    + '#frc-app .linemini{color:#06a94b;text-decoration:none}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   root.innerHTML = ''
@@ -85,6 +95,7 @@
     + '<div class="sb">輸入品名、品牌或批號，30 秒查證＋退費管道</div>'
     + '<div class="ev" id="frc-ev">載入中…</div></div>'
     + '<div class="sr"><input id="frc-q" type="search" placeholder="例：泰山沙拉油、福壽、C1140426K…" autocomplete="off"><button id="frc-clear">清除</button></div>'
+    + '<a class="linebtn" id="frc-line" href="#" target="_blank" rel="noopener">💬 分享到 LINE——提醒家人查一下</a>'
     + '<div class="hint">💡 批號在瓶身或桶身；泰山退費<b>不限批號</b>（2026/4～6 月購買皆可退）。</div>'
     + '<div class="chips" id="frc-chips"></div>'
     + '<div id="frc-pipe"></div>'
@@ -128,6 +139,7 @@
         + (i.refund ? '<div class="rf">💰 退費：' + i.refund + '</div>' : '')
         + '<div class="sc"><a href="' + i.source + '" target="_blank" rel="noopener">來源公告 ↗</a>'
         + (FORM_URL ? '　·　<a href="' + reportUrl(i.brand + '｜' + i.product, '名單資訊有誤') + '" target="_blank" rel="noopener" style="color:var(--sub)">🙋 回報此筆有誤</a>' : '')
+        + '　·　<a class="linemini" href="' + lineShare('⚠️ 食安注意｜' + i.brand + '｜' + i.product + (i.spec ? '（' + i.spec + '）' : '') + '\n已列' + (i.tier === 1 ? '官方下架回收' : '業者自主回收') + '名單' + (i.batch ? '\n' + i.batch : '') + '\n退費方式與最新名單：') + '" target="_blank" rel="noopener">💬 傳給家人</a>'
         + '</div></div>';
     }).join('');
   }
@@ -160,6 +172,8 @@
       }, 900);
     });
     $('frc-clear').onclick = function () { $('frc-q').value = ''; render(); };
+    $('frc-line').href = LINE_GENERIC;
+    $('frc-line').addEventListener('click', function () { track('share_line', { where: 'top' }); });
 
     // 🩺 管線健康：頁面直接顯示自動更新是否正常（>48h 未跑會亮警告）
     var lr = m.pipeline_last_run || '';
