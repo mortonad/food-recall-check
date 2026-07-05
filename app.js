@@ -37,7 +37,15 @@
     + '#frc-app .dis{font-size:12.5px;color:var(--sub);background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-top:18px}'
     + '#frc-app .ft{margin-top:22px;text-align:center;font-size:13px;color:var(--sub)}'
     + '#frc-app .cta{display:inline-block;margin-top:8px;background:var(--brand);color:#fff;text-decoration:none;padding:9px 16px;border-radius:99px;font-size:14px}'
-    + '#frc-app .up{font-weight:700;color:var(--teal)}';
+    + '#frc-app .up{font-weight:700;color:var(--teal)}'
+    + '#frc-app .pipe{font-size:12px;margin:12px 0 0;padding:6px 12px;border-radius:99px;display:inline-block}'
+    + '#frc-app .pok{background:#e8f6f5;color:#0b7a78}'
+    + '#frc-app .pbad{background:#fdf1ef;color:var(--red);font-weight:700}'
+    + '#frc-app .feed{background:#eef3fe;border:1px solid #d5e2fb;border-radius:14px;padding:12px 14px;margin:10px 0}'
+    + '#frc-app .feed h4{font-size:14px;color:var(--brandd);margin:0 0 6px}'
+    + '#frc-app .feed li{font-size:13px;margin:5px 0 5px 16px}'
+    + '#frc-app .feed a{color:var(--brandd)}'
+    + '#frc-app .feed .dt{color:var(--sub);font-size:12px;margin-left:6px}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   root.innerHTML = ''
@@ -48,6 +56,8 @@
     + '<div class="sr"><input id="frc-q" type="search" placeholder="例：泰山沙拉油、福壽、C1140426K…" autocomplete="off"><button id="frc-clear">清除</button></div>'
     + '<div class="hint">💡 批號在瓶身或桶身；泰山退費<b>不限批號</b>（2026/4～6 月購買皆可退）。</div>'
     + '<div class="chips" id="frc-chips"></div>'
+    + '<div id="frc-pipe"></div>'
+    + '<div id="frc-feed"></div>'
     + '<div id="frc-stats"></div><div id="frc-results"></div>'
     + '<div style="margin-top:22px"><b style="font-size:15px">📖 怎麼看我手上這瓶</b><div id="frc-guide"></div>'
     + '<details><summary>☎️ 客服與官方專線</summary><ul id="frc-tel"></ul></details>'
@@ -99,6 +109,28 @@
     });
     $('frc-q').addEventListener('input', render);
     $('frc-clear').onclick = function () { $('frc-q').value = ''; render(); };
+
+    // 🩺 管線健康：頁面直接顯示自動更新是否正常（>48h 未跑會亮警告）
+    var lr = m.pipeline_last_run || '';
+    var stale = true;
+    if (lr) {
+      var t = new Date(lr.replace(/-/g, '/'));
+      stale = isNaN(t) ? true : (Date.now() - t.getTime()) > 48 * 3600 * 1000;
+    }
+    $('frc-pipe').innerHTML = lr
+      ? '<span class="pipe ' + (stale ? 'pbad' : 'pok') + '">' + (stale ? '⚠️ 自動更新已超過 48 小時未執行（' + lr + '）' : '🟢 每日自動更新正常｜最後執行 ' + lr) + '</span>'
+      : '<span class="pipe pbad">⚠️ 尚未偵測到自動更新紀錄</span>';
+
+    // 📢 官方公告自動收錄區（全自動，標題級；細節以官方連結為準）
+    var feed = d.auto_feed || [];
+    if (feed.length) {
+      $('frc-feed').innerHTML = '<div class="feed"><h4>📢 最新官方公告（每日自動收錄，點標題看官方原文）</h4><ul>'
+        + feed.slice(0, 8).map(function (e) {
+            return '<li><a href="' + e.url + '" target="_blank" rel="noopener">' + e.title + '</a>'
+              + '<span class="dt">' + (e.date || e.collected_at || '') + '</span></li>';
+          }).join('')
+        + '</ul></div>';
+    }
     render();
   }).catch(function () {
     root.innerHTML = '<div class="none">⚠️ 名單載入失敗，請重新整理。</div>';
