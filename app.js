@@ -3,6 +3,30 @@
  * 改介面或名單都在 GitHub 改，Google Sites 不用再動 */
 (function () {
   var RAW = 'https://raw.githubusercontent.com/mortonad/food-recall-check/main/';
+
+  // ══════════ v3 CONFIG：填了才啟用，留空自動隱藏該功能 ══════════
+  var GA4_ID = '';              // GA4 評估 ID（G-XXXXXXXXXX）→ 啟用流量與查詢詞統計
+  var FORM_URL = '';            // 回報表單網址（https://docs.google.com/forms/d/e/xxxx/viewform）
+  var FORM_ENTRY_PRODUCT = '';  // 表單「品名」題的 entry ID（例：entry.123456789）→ 查無時自動帶入
+  // ═══════════════════════════════════════════════════════════
+
+  // GA4：載入與事件（沒填 GA4_ID 就完全不載入）
+  var track = function () {};
+  if (GA4_ID) {
+    var gs = document.createElement('script');
+    gs.async = true; gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(gs);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date()); window.gtag('config', GA4_ID);
+    track = function (name, params) { try { window.gtag('event', name, params || {}); } catch (e) {} };
+  }
+
+  function reportUrl(term) {
+    if (!FORM_URL) return '';
+    return FORM_URL + (FORM_URL.indexOf('?') === -1 ? '?' : '&') + 'usp=pp_url'
+      + (FORM_ENTRY_PRODUCT && term ? '&' + FORM_ENTRY_PRODUCT + '=' + encodeURIComponent(term) : '');
+  }
   var root = document.getElementById('frc-app');
   if (!root) { root = document.createElement('div'); root.id = 'frc-app'; document.body.appendChild(root); }
 
@@ -81,7 +105,11 @@
       ? '找到 <b>' + list.length + '</b> 筆（官方下架 ' + t1 + '・業者自主 ' + (list.length - t1) + '）'
       : '目前名單共 <b>' + DATA.items.length + '</b> 筆：官方強制下架 ' + DATA.items.filter(function (i) { return i.tier === 1; }).length + ' 筆・業者自主回收 ' + DATA.items.filter(function (i) { return i.tier === 2; }).length + ' 筆';
     if (q && !list.length) {
-      $('frc-results').innerHTML = '<div class="none"><b>查無「' + $('frc-q').value.trim() + '」相關項目</b><p style="font-size:13px;color:var(--sub);margin-top:6px">不在已公開名單中——但<b>查無≠保證安全</b>，名單可能持續更新；不確定時請撥品牌客服或食安專線 1919。</p></div>';
+      var term = $('frc-q').value.trim();
+      var ru = reportUrl(term);
+      $('frc-results').innerHTML = '<div class="none"><b>查無「' + term + '」相關項目</b><p style="font-size:13px;color:var(--sub);margin-top:6px">不在已公開名單中——但<b>查無≠保證安全</b>，名單可能持續更新；不確定時請撥品牌客服或食安專線 1919。</p>'
+        + (ru ? '<a class="cta" style="margin-top:10px" href="' + ru + '" target="_blank" rel="noopener">🙋 我有這個產品的資訊，回報給整理者</a>' : '')
+        + '</div>';
       return;
     }
     $('frc-results').innerHTML = list.map(function (i) {
@@ -107,7 +135,20 @@
     Array.prototype.forEach.call(document.querySelectorAll('#frc-app .chip'), function (c) {
       c.onclick = function () { $('frc-q').value = c.textContent; render(); };
     });
-    $('frc-q').addEventListener('input', render);
+    // 搜尋事件：防抖 900ms 才送 GA4（停止輸入才算一次查詢，含結果數；0＝查無）
+    var tTimer = null;
+    $('frc-q').addEventListener('input', function () {
+      render();
+      clearTimeout(tTimer);
+      tTimer = setTimeout(function () {
+        var v = $('frc-q').value.trim();
+        if (!v) return;
+        var n = DATA.items.filter(function (i) {
+          return [i.brand, i.product, i.spec, i.batch, i.maker, i.status].some(function (f) { return norm(f).indexOf(norm(v)) !== -1; });
+        }).length;
+        track('search', { search_term: v.slice(0, 60), results: n });
+      }, 900);
+    });
     $('frc-clear').onclick = function () { $('frc-q').value = ''; render(); };
 
     // 🩺 管線健康：頁面直接顯示自動更新是否正常（>48h 未跑會亮警告）
@@ -131,6 +172,16 @@
           }).join('')
         + '</ul></div>';
     }
+    // 🙋 常駐回報入口（有填 FORM_URL 才出現）：資料指正、新增品項都走這
+    if (FORM_URL) {
+      var ftEl = document.querySelector('#frc-app .ft');
+      if (ftEl) {
+        var rl = document.createElement('div');
+        rl.innerHTML = '<a href="' + reportUrl('') + '" target="_blank" rel="noopener" style="color:var(--brandd);font-size:13px">🙋 名單有誤或想補充？點此回報給整理者</a>';
+        ftEl.insertBefore(rl, ftEl.firstChild);
+      }
+    }
+
     render();
   }).catch(function () {
     root.innerHTML = '<div class="none">⚠️ 名單載入失敗，請重新整理。</div>';
