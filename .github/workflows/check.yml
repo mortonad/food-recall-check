@@ -4,11 +4,12 @@ name: 回收名單每日看門狗
 
 on:
   schedule:
-    - cron: "37 22 * * *"   # UTC 22:37 = 台北 06:37，避開整點排隊
+    - cron: "37 22 * * *"   # UTC 22:37 = 台北 06:37（避開整點尖峰，排程更準時）
   workflow_dispatch: {}      # 可手動執行測試
 
 permissions:
   contents: write
+  issues: write          # 讓看門狗能開 Issue 通知你（GitHub 會自動寄信）
 
 jobs:
   watchdog:
@@ -27,6 +28,8 @@ jobs:
           exit $missing
 
       - name: 驗證名單＋偵測官方新公告
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 update_recall.py
 
       - name: 提交狀態檔（alert / seen）
@@ -34,5 +37,10 @@ jobs:
           git config user.name "recall-watchdog"
           git config user.email "actions@users.noreply.github.com"
           git add data/
-          git diff --cached --quiet && echo "無變化" || git commit -m "watchdog: $(date -u +%F)"
-          git push
+          if git diff --cached --quiet; then
+            echo "無變化，不需提交"
+          else
+            git commit -m "watchdog: $(date -u +%F)"
+            git pull --rebase origin main   # 先拉再推：避免與你手動 commit 撞車
+            git push
+          fi
