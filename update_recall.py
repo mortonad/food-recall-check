@@ -21,6 +21,8 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/126.0
 NEWS_URL = 'https://www.fda.gov.tw/tc/news.aspx?cid=4'
 BASE = 'https://www.fda.gov.tw/tc/'
 KEYWORDS = ('回收', '下架', '苯駢芘', '超標', '違規', '停售')
+# 台中市食安處事件專頁（下游名單 PDF 公布處）——偵測新文件自動收錄
+TAICHUNG_URL = 'https://www.fds.taichung.gov.tw/1210187/1210197/1210198/nodeCp?nodeId=3312580'
 TPE = timezone(timedelta(hours=8))
 DATA_PATH = 'data/recall_list.json'
 
@@ -79,6 +81,22 @@ def fetch_announcements():
     return out
 
 
+def fetch_taichung_docs():
+    """掃台中市食安處事件頁的 PDF 連結 → [(title, url, date)]；抓不到回空list（不中斷）。"""
+    try:
+        req = urllib.request.Request(TAICHUNG_URL, headers=HEADERS)
+        html = urllib.request.urlopen(req, timeout=60).read().decode('utf-8', 'replace')
+    except Exception as e:
+        print(f'⚠️ 無法抓取台中市府事件頁（{e}）——本次略過')
+        return []
+    out = []
+    from urllib.parse import unquote, urljoin
+    for m in re.finditer(r'href="([^"]+\.pdf)"', html, re.I):
+        url = urljoin('https://www.taichung.gov.tw/', m.group(1))
+        fname = unquote(url.rsplit('/', 1)[-1]).replace('.pdf', '')
+        out.append(('📄 台中市府文件：' + fname, url, now_tpe()[:10]))
+    return out
+
 def merge_auto_feed(data, announcements):
     """把新公告合入 auto_feed（以 url 去重）；回傳新增清單。純函式、可測試。"""
     seen = {e.get('url') for e in data['auto_feed']}
@@ -127,10 +145,11 @@ def open_issue(added):
 def main():
     data = load_data()
     ann = fetch_announcements()
-    if ann is None:                              # 官網抓不到：仍寫 last_run 讓頁面知道管線活著
+    docs = fetch_taichung_docs()                 # 台中市府 PDF 名單（下游進貨業者文件）
+    if ann is None and not docs:                 # 全抓不到：仍寫 last_run 讓頁面知道管線活著
         save_data(data)
         return
-    added = merge_auto_feed(data, ann)
+    added = merge_auto_feed(data, (ann or []) + docs)
     save_data(data)
     if added:
         print(f'📢 自動收錄 {len(added)} 則新公告：')
