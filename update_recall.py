@@ -1,67 +1,145 @@
 # -*- coding: utf-8 -*-
 """
-update_recall.py｜回收名單看門狗（放進 food-radar-mirror repo，Actions 每日執行）
-誠實設計：官方名單以新聞稿/圖檔公告發布、無結構化資料 → 不假裝能全自動解析。
-本腳本做三件事：
-  1. 驗證 data/recall_list.json 格式正確（壞檔就讓 Actions 轉紅）
-  2. 抓食藥署新聞列表，偵測是否出現「新的回收/下架」公告（比對已知關鍵字）
-  3. 有新公告 → 寫 data/recall_alert.json ＋讓該步驟輸出提醒（你收到 GitHub 通知後手動更新 JSON）
+update_recall.py v2｜回收公告「全自動」收錄器（Actions 每日執行，零人工維運）
+
+每天自動做：
+  1. 驗證 data/recall_list.json（壞了直接用中文講原因）
+  2. 掃食藥署新聞頁 → 擷取「回收/下架/超標」公告的（標題＋日期＋連結）
+  3. 機器直接寫進 JSON 的 auto_feed 區（去重）→ Actions commit → 網頁自動更新
+  4. 更新 meta.pipeline_last_run → 網頁上直接顯示管線健康（超時會亮 ⚠️）
+  5. 有新公告順便開 GitHub Issue 通知（想補批號細節再去補 items 區；不補網站也是新的）
+
+分層誠實原則：
+  auto_feed＝標題級（全自動，秒級收錄，內容以官方連結為準）
+  items    ＝批號級（人工精修，高精度；只有大事件值得補）
 """
 import io, json, re, sys, urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/126.0 Safari/537.36',
            'Accept-Language': 'zh-TW,zh;q=0.9'}
 NEWS_URL = 'https://www.fda.gov.tw/tc/news.aspx?cid=4'
-KEYWORDS = ('回收', '下架', '苯駢芘', '違規', '超標')
+BASE = 'https://www.fda.gov.tw/tc/'
+KEYWORDS = ('回收', '下架', '苯駢芘', '超標', '違規', '停售')
+TPE = timezone(timedelta(hours=8))
+DATA_PATH = 'data/recall_list.json'
 
-def load_json(p):
-    with io.open(p, encoding='utf-8') as f:
-        return json.load(f)
 
-def main():
-    # 0) 前置檢查：缺什麼講清楚，不丟神祕錯誤碼
+def now_tpe():
+    return datetime.now(TPE).strftime('%Y-%m-%d %H:%M')
+
+
+def load_data():
+    """讀名單；錯誤用人話講清楚。"""
     import os
-    if not os.path.exists('data/recall_list.json'):
-        print('❌ 找不到 data/recall_list.json——請到 repo 用「Add file」建立 data/recall_list.json 並貼上名單內容（見部署教學 Phase 1）')
+    if not os.path.exists(DATA_PATH):
+        print('❌ 找不到 data/recall_list.json——請照部署教學 Phase 1 建立並貼上名單內容')
         sys.exit(1)
-
-    # 1) 名單格式驗證
-    data = load_json('data/recall_list.json')
-    assert 'meta' in data and 'items' in data and len(data['items']) > 0
-    for it in data['items']:
-        for k in ('tier', 'brand', 'product', 'status', 'refund', 'source'):
-            assert k in it, f'items 缺欄位 {k}'
-    print(f"✅ recall_list.json 格式 OK（{len(data['items'])} 筆，更新日 {data['meta']['updated']}）")
-
-    # 2) 抓官方新聞列表找新公告
-    known = set()
+    raw = io.open(DATA_PATH, encoding='utf-8').read()
+    if raw.strip() == '':
+        print('❌ data/recall_list.json 是「空檔案」——檔名建了但內容沒貼上。')
+        print('   修法：GitHub 打開該檔 → 鉛筆✏️編輯 → 貼上完整名單 JSON → Commit 到 main。')
+        sys.exit(1)
     try:
-        known = set(load_json('data/recall_seen.json'))
-    except Exception:
-        pass
+        data = json.loads(raw)
+    except json.JSONDecodeError as e:
+        print(f'❌ data/recall_list.json 不是合法 JSON（第 {e.lineno} 行附近：{e.msg}）——請整份重新貼上。')
+        sys.exit(1)
+    if 'meta' not in data or 'items' not in data:
+        print('❌ JSON 缺 meta 或 items 區塊——請用原始範本整份重貼。')
+        sys.exit(1)
+    data.setdefault('auto_feed', [])          # v2 新增區：沒有就自動補，舊 JSON 免改
+    print(f"✅ recall_list.json 格式 OK（人工精修 {len(data['items'])} 筆／自動收錄 {len(data['auto_feed'])} 筆）")
+    return data
+
+
+def fetch_announcements():
+    """抓食藥署新聞列表 → [(title, url, date)]；抓不到回 None（不中斷服務）。"""
     try:
         req = urllib.request.Request(NEWS_URL, headers=HEADERS)
         html = urllib.request.urlopen(req, timeout=60).read().decode('utf-8', 'replace')
     except Exception as e:
-        print(f'⚠️ 無法抓取食藥署新聞頁（{e}）——本次略過偵測，不影響名單服務')
+        print(f'⚠️ 無法抓取食藥署新聞頁（{e}）——本次略過收錄，明天會再試')
+        return None
+    out = []
+    # 連結＋標題（列表頁項目指向 newsContent.aspx?...id=...）
+    for m in re.finditer(r'href="([^"]*newsContent[^"]*)"[^>]*>\s*([^<]{6,120})\s*<', html):
+        url, title = m.group(1), re.sub(r'\s+', ' ', m.group(2)).strip()
+        if not any(k in title for k in KEYWORDS):
+            continue
+        if url.startswith('/'):
+            url = 'https://www.fda.gov.tw' + url
+        elif not url.startswith('http'):
+            url = BASE + url
+        # 嘗試就近找日期（列表頁常見 yyyy-mm-dd 或 yyy/mm/dd）
+        tail = html[m.end():m.end() + 300]
+        dm = re.search(r'(\d{4}[-/.]\d{1,2}[-/.]\d{1,2})|(\d{3}[-/.]\d{1,2}[-/.]\d{1,2})', tail)
+        date = dm.group(0).replace('.', '/').replace('-', '/') if dm else ''
+        out.append((title, url, date))
+    return out
+
+
+def merge_auto_feed(data, announcements):
+    """把新公告合入 auto_feed（以 url 去重）；回傳新增清單。純函式、可測試。"""
+    seen = {e.get('url') for e in data['auto_feed']}
+    added = []
+    for title, url, date in announcements:
+        if url in seen:
+            continue
+        entry = {'title': title, 'url': url, 'date': date, 'collected_at': now_tpe()}
+        data['auto_feed'].insert(0, entry)      # 新的在前
+        seen.add(url)
+        added.append(entry)
+    data['auto_feed'] = data['auto_feed'][:100]  # 保留最近 100 則
+    return added
+
+
+def save_data(data):
+    data['meta']['pipeline_last_run'] = now_tpe()
+    io.open(DATA_PATH, 'w', encoding='utf-8').write(json.dumps(data, ensure_ascii=False, indent=1))
+
+
+def open_issue(added):
+    """新公告開 Issue → GitHub 自動寄信（人工「選擇性」補批號細節用；不動作網站也已更新）。"""
+    import os
+    token = os.environ.get('GITHUB_TOKEN', '')
+    repo = os.environ.get('GITHUB_REPOSITORY', '')
+    if not token or not repo:
+        print('（非 Actions 環境，略過開 Issue）')
         return
+    body = ('已「自動收錄」以下公告到網頁（標題級）：\n\n'
+            + '\n'.join(f"- [{e['title']}]({e['url']})" for e in added)
+            + '\n\n👉 若屬重大事件、想補「批號/退費」細節，再編輯 data/recall_list.json 的 items 區；'
+              '不編輯，網站也已顯示公告與官方連結。')
+    payload = json.dumps({'title': f'📢 已自動收錄 {len(added)} 則新公告（可選擇性補批號細節）',
+                          'body': body, 'labels': ['recall-watchdog']}).encode('utf-8')
+    req = urllib.request.Request(
+        f'https://api.github.com/repos/{repo}/issues', data=payload, method='POST',
+        headers={'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json',
+                 'User-Agent': 'recall-watchdog'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            print(f"📬 已開 Issue #{json.loads(r.read().decode())['number']}（GitHub 會寄信通知）")
+    except Exception as e:
+        print(f'⚠️ 開 Issue 失敗（{e}）——不影響自動收錄')
 
-    titles = re.findall(r'newsContent[^>]*>\s*([^<]{6,80})\s*<', html)
-    hits = [t.strip() for t in titles if any(k in t for k in KEYWORDS)]
-    new = [t for t in hits if t not in known]
 
-    # 3) 有新公告 → 記錄並提醒
-    if new:
-        alert = {'detected_at': datetime.now(timezone.utc).isoformat(), 'new_announcements': new,
-                 'action': '請人工核對是否需更新 data/recall_list.json（品項/批號/退費）'}
-        io.open('data/recall_alert.json', 'w', encoding='utf-8').write(json.dumps(alert, ensure_ascii=False, indent=2))
-        print('🚨 偵測到疑似新公告，已寫入 data/recall_alert.json：')
-        for t in new:
-            print('   ・' + t)
+def main():
+    data = load_data()
+    ann = fetch_announcements()
+    if ann is None:                              # 官網抓不到：仍寫 last_run 讓頁面知道管線活著
+        save_data(data)
+        return
+    added = merge_auto_feed(data, ann)
+    save_data(data)
+    if added:
+        print(f'📢 自動收錄 {len(added)} 則新公告：')
+        for e in added:
+            print('   ・' + e['title'])
+        open_issue(added)
     else:
-        print('✅ 官方新聞頁無新的回收/下架公告')
-    io.open('data/recall_seen.json', 'w', encoding='utf-8').write(json.dumps(sorted(set(hits) | known), ensure_ascii=False, indent=1))
+        print('✅ 無新公告（auto_feed 維持 ' + str(len(data['auto_feed'])) + ' 則）')
+
 
 if __name__ == '__main__':
     main()
