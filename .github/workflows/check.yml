@@ -4,7 +4,7 @@ name: 回收名單每日看門狗
 
 on:
   schedule:
-    - cron: "0 23 * * *"    # UTC 23:00 = 台北 07:00
+    - cron: "37 22 * * *"   # UTC 22:37 = 台北 06:37，避開整點排隊
   workflow_dispatch: {}      # 可手動執行測試
 
 permissions:
