@@ -113,12 +113,32 @@
   var norm = function (s) { return String(s || '').toLowerCase().replace(/[\s\-（）()／/｜|]/g, ''); };
   var DATA = null;
 
+  // v5 搜尋核心：欄位「串接」後比對（「泰山沙拉油」可跨品牌＋品名欄命中）
+  //             ＋空格分詞 AND（「福壽 香油」兩個詞都要出現才算中）
+  function itemHay(i) {
+    return norm([i.brand, i.product, i.spec, i.batch, i.maker, i.status].join(''));
+  }
+  function tokenHit(hay, t) {
+    if (hay.indexOf(t) !== -1) return true;
+    // 二分容錯：詞被中間字隔開時（福壽香油→福壽＋香油），拆兩段各≥2字都出現就算中
+    if (t.length >= 4) {
+      for (var k = 2; k <= t.length - 2; k++) {
+        if (hay.indexOf(t.slice(0, k)) !== -1 && hay.indexOf(t.slice(k)) !== -1) return true;
+      }
+    }
+    return false;
+  }
+  function matches(i, rawQ) {
+    var toks = String(rawQ || '').trim().split(/\s+/).map(norm).filter(Boolean);
+    if (!toks.length) return true;
+    var hay = itemHay(i);
+    return toks.every(function (t) { return tokenHit(hay, t); });
+  }
+
   function render() {
-    var q = norm($('frc-q').value);
-    var list = DATA.items.filter(function (i) {
-      if (!q) return true;
-      return [i.brand, i.product, i.spec, i.batch, i.maker, i.status].some(function (f) { return norm(f).indexOf(q) !== -1; });
-    });
+    var rawQ = $('frc-q').value;
+    var q = norm(rawQ);
+    var list = DATA.items.filter(function (i) { return matches(i, rawQ); });
     var t1 = list.filter(function (i) { return i.tier === 1; }).length;
     $('frc-stats').innerHTML = q
       ? '找到 <b>' + list.length + '</b> 筆（官方下架 ' + t1 + '・業者自主 ' + (list.length - t1) + '）'
@@ -165,9 +185,7 @@
       tTimer = setTimeout(function () {
         var v = $('frc-q').value.trim();
         if (!v) return;
-        var n = DATA.items.filter(function (i) {
-          return [i.brand, i.product, i.spec, i.batch, i.maker, i.status].some(function (f) { return norm(f).indexOf(norm(v)) !== -1; });
-        }).length;
+        var n = DATA.items.filter(function (i) { return matches(i, v); }).length;
         track('search', { search_term: v.slice(0, 60), results: n });
       }, 900);
     });
