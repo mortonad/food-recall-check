@@ -61,6 +61,8 @@
     + '#frc-app .bdg{flex-shrink:0;font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap}'
     + '#frc-app .b1{background:var(--redbg);color:var(--red)}'
     + '#frc-app .b2{background:var(--amberbg);color:var(--amber)}'
+    + '#frc-app .b3{background:#fff1e0;color:#b45309}'
+    + '#frc-app .autonote{font-size:12.5px;color:#b45309;background:#fff8ef;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:7px 9px;margin-top:6px}'
     + '#frc-app .mt{font-size:13px;color:var(--sub);margin-top:5px}'
     + '#frc-app .bt{font-size:13px;background:var(--gray);border-radius:8px;padding:7px 9px;margin-top:7px;word-break:break-all}'
     + '#frc-app .rf{font-size:13px;margin-top:7px;padding:7px 9px;background:#eef6f6;border-left:3px solid var(--teal);border-radius:0 8px 8px 0}'
@@ -135,15 +137,50 @@
     return toks.every(function (t) { return tokenHit(hay, t); });
   }
 
+  // 自動收錄公告的搜尋：比對標題＋品牌 tag（無查詢字時回 false，不灌進結果）
+  function feedHay(e) {
+    return norm((e.title || '') + (Array.isArray(e.brands) ? e.brands.join('') : ''));
+  }
+  function matchesFeed(e, rawQ) {
+    var toks = String(rawQ || '').trim().split(/\s+/).map(norm).filter(Boolean);
+    if (!toks.length) return false;
+    var hay = feedHay(e);
+    return toks.every(function (t) { return tokenHit(hay, t); });
+  }
+  // 📄 官方下游名單（official_docs）也接進搜尋：搜「下游」「福壽」「福懋」都能翻出對應 PDF
+  function matchesDoc(x, rawQ) {
+    var toks = String(rawQ || '').trim().split(/\s+/).map(norm).filter(Boolean);
+    if (!toks.length) return false;
+    var hay = norm(x.name || '');
+    return toks.every(function (t) { return tokenHit(hay, t); });
+  }
+  function docCard(x) {
+    return '<div class="card"><div class="top"><h3>' + x.name + '</h3><span class="bdg b3">📄 官方下游名單</span></div>'
+      + '<div class="autonote">此為地方政府公布的「下游進貨業者名單」——名列業者<b>不代表其產品違規</b>，多數已完成下架退回；你要找的賣場／餐廳可點下方 PDF 內搜尋，詳情以官方最新公告為準。</div>'
+      + '<div class="sc"><a href="' + x.url + '" target="_blank" rel="noopener">開啟官方 PDF ↗</a></div></div>';
+  }
+  // 🟠 官方公告·自動收錄卡（明標未經人工核對，批號/退費以官方原文為準）
+  function feedCard(e) {
+    var t = e.title || '官方公告';
+    return '<div class="card"><div class="top"><h3>' + t + '</h3><span class="bdg b3">🟠 官方公告·自動收錄</span></div>'
+      + '<div class="autonote">批號／退費請點下方官方原文查證——本筆為系統自動收錄，<b>未經人工核對</b>。</div>'
+      + '<div class="sc"><a href="' + e.url + '" target="_blank" rel="noopener">官方原文 ↗</a>'
+      + '　·　<a class="linemini" href="' + lineShare('⚠️ 食安注意｜' + t + '\n官方公告，詳情見原文：') + '" target="_blank" rel="noopener">💬 傳給家人</a>'
+      + '</div></div>';
+  }
+
   function render() {
     var rawQ = $('frc-q').value;
     var q = norm(rawQ);
     var list = DATA.items.filter(function (i) { return matches(i, rawQ); });
+    // 有查詢字時，自動收錄公告＋官方下游名單也一起搜（無查詢字則只走上方時間軸與底部文件區）
+    var feedHits = q ? (DATA.auto_feed || []).filter(function (e) { return matchesFeed(e, rawQ); }) : [];
+    var docHits = q ? (DATA.official_docs || []).filter(function (x) { return matchesDoc(x, rawQ); }) : [];
     var t1 = list.filter(function (i) { return i.tier === 1; }).length;
     $('frc-stats').innerHTML = q
-      ? '找到 <b>' + list.length + '</b> 筆（官方下架 ' + t1 + '・業者自主 ' + (list.length - t1) + '）'
+      ? '找到 <b>' + (list.length + feedHits.length + docHits.length) + '</b> 筆（人工精修 ' + list.length + '・官方公告 ' + feedHits.length + '・下游名單 ' + docHits.length + '）'
       : '目前名單共 <b>' + DATA.items.length + '</b> 筆：官方強制下架 ' + DATA.items.filter(function (i) { return i.tier === 1; }).length + ' 筆・業者自主回收 ' + DATA.items.filter(function (i) { return i.tier === 2; }).length + ' 筆';
-    if (q && !list.length) {
+    if (q && !list.length && !feedHits.length && !docHits.length) {
       var term = $('frc-q').value.trim();
       var ru = reportUrl(term);
       $('frc-results').innerHTML = '<div class="none"><b>查無「' + term + '」相關項目</b><p style="font-size:13px;color:var(--sub);margin-top:6px">不在已公開名單中——但<b>查無≠保證安全</b>，名單可能持續更新；不確定時請撥品牌客服或食安專線 1919。</p>'
@@ -151,6 +188,14 @@
         + '</div>';
       return;
     }
+    var feedHtml = feedHits.length
+      ? '<div style="font-size:13px;color:var(--sub);margin:16px 0 2px">📢 相關官方公告（自動收錄 ' + feedHits.length + ' 則，批號/退費請點原文）</div>'
+        + feedHits.map(feedCard).join('')
+      : '';
+    var docHtml = docHits.length
+      ? '<div style="font-size:13px;color:var(--sub);margin:16px 0 2px">📄 相關官方下游名單（' + docHits.length + ' 份，賣場／餐廳請點 PDF 內查）</div>'
+        + docHits.map(docCard).join('')
+      : '';
     $('frc-results').innerHTML = list.map(function (i) {
       var b = i.tier === 1 ? '<span class="bdg b1">🔴 官方下架回收</span>' : '<span class="bdg b2">🟡 業者自主回收</span>';
       return '<div class="card"><div class="top"><h3>' + i.brand + '｜' + i.product + (i.spec ? '（' + i.spec + '）' : '') + '</h3>' + b + '</div>'
@@ -161,7 +206,7 @@
         + (FORM_URL ? '　·　<a href="' + reportUrl(i.brand + '｜' + i.product, '名單資訊有誤') + '" target="_blank" rel="noopener" style="color:var(--sub)">🙋 回報此筆有誤</a>' : '')
         + '　·　<a class="linemini" href="' + lineShare('⚠️ 食安注意｜' + i.brand + '｜' + i.product + (i.spec ? '（' + i.spec + '）' : '') + '\n已列' + (i.tier === 1 ? '官方下架回收' : '業者自主回收') + '名單' + (i.batch ? '\n' + i.batch : '') + '\n退費方式與最新名單：') + '" target="_blank" rel="noopener">💬 傳給家人</a>'
         + '</div></div>';
-    }).join('');
+    }).join('') + feedHtml + docHtml;
   }
 
   fetch(RAW + 'data/recall_list.json').then(function (r) { return r.json(); }).then(function (d) {
