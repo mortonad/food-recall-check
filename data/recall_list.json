@@ -71,7 +71,7 @@
     "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634440"
    }
   ],
-  "pipeline_last_run": "2026-07-08 13:05"
+  "pipeline_last_run": "2026-07-09 07:40"
  },
  "official_docs": [
   {
@@ -490,6 +490,15 @@
   }
  ],
  "auto_feed": [
+  {
+   "title": "食藥署擴大追查中聯油脂案 全面啟動4家油脂工廠實地稽查及抽驗",
+   "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634454",
+   "date": "2026/07/08",
+   "collected_at": "2026-07-09 07:40",
+   "brands": [
+    "中聯"
+   ]
+  },
   {
    "title": "食藥署接獲業者通報「大豆沙拉油」檢驗異常 啟動下架回收派員查核",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379",
