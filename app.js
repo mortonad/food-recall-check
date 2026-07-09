@@ -2,8 +2,8 @@
  * 資料源：同 repo 的 data/recall_list.json（每日 Actions 看門狗維護）
  * 改介面或名單都在 GitHub 改，Google Sites 不用再動 */
 (function () {
-  // 資料源改用 jsDelivr CDN：raw.githubusercontent.com 會限流回 429，導致名單間歇性載入失敗
-  var RAW = 'https://cdn.jsdelivr.net/gh/mortonad/food-recall-check@main/';
+  // 資料源改用 GitHub Pages（Fastly CDN）：不限流、push 後約 1 分鐘自動上線、免 purge、無 CDN 節點快取不同步問題
+  var RAW = 'https://mortonad.github.io/food-recall-check/';
 
   // 抓 JSON：先檢查 r.ok（避免把 429 純文字「429: Too Many Requests」硬解析成 JSON 而爆錯）＋失敗自動重試一次
   function loadJSON(url, tries) {
