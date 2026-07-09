@@ -213,7 +213,7 @@
     DATA = d; var m = d.meta;
     $('frc-ev').textContent = m.event;
     $('frc-up').innerHTML = '名單更新：<span class="up">' + m.updated + '</span>｜' + m.refund_deadline;
-    $('frc-dis').textContent = '⚠️ ' + m.disclaimer;
+    $('frc-dis').innerHTML = '⚠️ ' + m.disclaimer + (m.penalties ? '<div class="pen" style="margin-top:6px;color:var(--sub);font-size:13px">⚖️ 裁罰：' + m.penalties + '</div>' : '');
     $('frc-guide').innerHTML = m.id_guide.map(function (g) { return '<details><summary>' + g.brand + '</summary><ul><li>' + g.how + '</li></ul></details>'; }).join('');
     $('frc-tel').innerHTML = m.hotlines.map(function (h) { return '<li>' + h.name + '：<a href="tel:' + h.tel.replace(/-/g, '') + '">' + h.tel + '</a></li>'; }).join('');
     $('frc-src').innerHTML = m.sources.map(function (s) { return '<li><a href="' + s.url + '" target="_blank" rel="noopener">' + s.name + '</a></li>'; }).join('');
