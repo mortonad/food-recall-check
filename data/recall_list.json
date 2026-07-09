@@ -84,7 +84,7 @@
     "url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=13709"
    }
   ],
-  "pipeline_last_run": "2026-07-09 11:57"
+  "pipeline_last_run": "2026-07-10 07:48"
  },
  "official_docs": [
   {
@@ -540,6 +540,15 @@
   }
  ],
  "auto_feed": [
+  {
+   "title": "食藥署擴大要求中聯公司應於7月10日中午12時前完成4至6月生產油品及其產品下架",
+   "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634464",
+   "date": "",
+   "collected_at": "2026-07-10 07:48",
+   "brands": [
+    "中聯"
+   ]
+  },
   {
    "title": "食藥署接獲業者通報「大豆沙拉油」檢驗異常 啟動下架回收派員查核",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379",
