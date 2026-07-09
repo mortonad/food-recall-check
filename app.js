@@ -2,7 +2,22 @@
  * 資料源：同 repo 的 data/recall_list.json（每日 Actions 看門狗維護）
  * 改介面或名單都在 GitHub 改，Google Sites 不用再動 */
 (function () {
-  var RAW = 'https://raw.githubusercontent.com/mortonad/food-recall-check/main/';
+  // 資料源改用 jsDelivr CDN：raw.githubusercontent.com 會限流回 429，導致名單間歇性載入失敗
+  var RAW = 'https://cdn.jsdelivr.net/gh/mortonad/food-recall-check@main/';
+
+  // 抓 JSON：先檢查 r.ok（避免把 429 純文字「429: Too Many Requests」硬解析成 JSON 而爆錯）＋失敗自動重試一次
+  function loadJSON(url, tries) {
+    tries = tries || 2;
+    return fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).catch(function (e) {
+      if (tries > 1) {
+        return new Promise(function (res) { setTimeout(res, 1200); }).then(function () { return loadJSON(url, tries - 1); });
+      }
+      throw e;
+    });
+  }
 
   // ══════════ v3 CONFIG：填了才啟用，留空自動隱藏該功能 ══════════
   var GA4_ID = 'G-R4L06RN02Q';              // GA4 評估 ID（G-XXXXXXXXXX）→ 啟用流量與查詢詞統計
@@ -209,7 +224,7 @@
     }).join('') + feedHtml + docHtml;
   }
 
-  fetch(RAW + 'data/recall_list.json').then(function (r) { return r.json(); }).then(function (d) {
+  loadJSON(RAW + 'data/recall_list.json').then(function (d) {
     DATA = d; var m = d.meta;
     $('frc-ev').textContent = m.event;
     $('frc-up').innerHTML = '名單更新：<span class="up">' + m.updated + '</span>｜' + m.refund_deadline;
