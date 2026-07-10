@@ -84,7 +84,7 @@
     "url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=13709"
    }
   ],
-  "pipeline_last_run": "2026-07-10 07:48"
+  "pipeline_last_run": "2026-07-11 07:32"
  },
  "official_docs": [
   {
@@ -540,6 +540,15 @@
   }
  ],
  "auto_feed": [
+  {
+   "title": "食藥署召集中聯油脂案四家業者說明會，超標原因未釐清前不得恢復生產",
+   "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634476",
+   "date": "",
+   "collected_at": "2026-07-11 07:32",
+   "brands": [
+    "中聯"
+   ]
+  },
   {
    "title": "食藥署擴大要求中聯公司應於7月10日中午12時前完成4至6月生產油品及其產品下架",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634464",
