@@ -84,7 +84,7 @@
     "url": "https://www.fda.gov.tw/tc/siteContent.aspx?sid=13709"
    }
   ],
-  "pipeline_last_run": "2026-07-14 07:29"
+  "pipeline_last_run": "2026-07-15 07:27"
  },
  "official_docs": [
   {
@@ -540,6 +540,15 @@
   }
  ],
  "auto_feed": [
+  {
+   "title": "食藥署研議中聯事件「預防性下架產品」重新上架原則",
+   "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488",
+   "date": "2026/07/14",
+   "collected_at": "2026-07-15 07:27",
+   "brands": [
+    "中聯"
+   ]
+  },
   {
    "title": "確保資訊透明! 食藥署持續每日更新中聯油脂案受影響產品流向",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634479",
