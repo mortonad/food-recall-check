@@ -104,7 +104,7 @@
     "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488"
    }
   ],
-  "pipeline_last_run": "2026-07-20 07:33"
+  "pipeline_last_run": "2026-07-21 07:34"
  },
  "official_docs": [
   {
@@ -593,6 +593,15 @@
   }
  ],
  "auto_feed": [
+  {
+   "title": "食藥署公布中聯油脂事件檢驗結果 本週提出食安法修法，並完成獨立調查",
+   "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634524",
+   "date": "",
+   "collected_at": "2026-07-21 07:34",
+   "brands": [
+    "中聯"
+   ]
+  },
   {
    "title": "中聯油品隱匿未呈報下架批次，予以重罰",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=31599",
