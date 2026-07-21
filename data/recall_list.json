@@ -1,9 +1,9 @@
 {
  "meta": {
   "event": "2026-07 中聯油脂大豆沙拉油苯駢芘超標案",
-  "updated": "2026-07-15",
-  "official_scope": "第一層＝源頭油品：中聯油脂 2026 年 4～6 月共製造 29 批油品——其中 5 批經下游檢出苯駢芘超標，一律強制下架且『不得重新上架』：315-1150404（BaP 8.1）、318-1150406（福壽花生風味精華調合油 2L 檢出 4.3）、314-1150410（福壽不飽和大豆沙拉油 2L 檢出 3.8）、315-1150510（南僑用油檢出 2.9）、313-1150512（泰山好理調合油 0.6L 檢出 2.5）；另 3 批未出貨、21 批已分送泰山／福壽／福懋。2026/7/9 起擴大要求中聯 4～6 月所有油品及其製成品於 7/10 中午 12 時前完成預防性下架；中聯於超標原因查明並確認改善前不得恢復生產。第二層＝下游加工品：受影響產品累計逾 440 項、波及逾 400 家業者。2026/7/14 公布『重新上架原則』（分源分項、逐批確認、上下游核對）：52 件原油＋321 件終端產品送驗，上下游皆合格才可恢復上架，任一不合格則對應整批全數不得上架，預計一週內驗完；上述 5 個不合格批次永久排除。名單每日下午 2 時更新，以食藥署『中聯油脂案專區』為準",
-  "disclaimer": "本頁為公開官方公告與品牌聲明之整理，非官方網站；查無結果≠保證安全，僅代表不在已公開名單中。一切以食藥署與各品牌最新公告為準。退貨遭拒可向所在地消保官反映（消費者服務專線 1950）。註：自 2026/7/14 起，預防性下架產品經檢驗合格後將陸續恢復上架（5 個不合格批次除外），狀態以食藥署最新公告為準。",
+  "updated": "2026-07-21",
+  "official_scope": "第一層＝源頭油品：中聯油脂 2026 年 4～6 月共製造 30 批大豆沙拉油——7 批確認苯駢芘超標（5 批業者通報、2 批 TFDA 另查出）＋ 1 批無檢體（外銷）＝ 8 批不可上架並啟動銷毀。業者通報 5 批：315-1150404（BaP 8.1）、318-1150406（福壽花生風味精華調合油 2L 檢出 4.3）、314-1150410（福壽不飽和大豆沙拉油 2L 檢出 3.8）、315-1150510（南僑用油檢出 2.9）、313-1150512（泰山好理調合油 0.6L 檢出 2.5）；TFDA 另查出 2 批（中聯隱匿未通報，7/16 公告重罰）：313-1150408（泰山不飽和調合油超標）、315-1150413（泰山／福壽／福懋受影響）；無檢體 1 批：319-1150613（以外銷為主）。3 批尚未出貨原油持續管制、不在本次上架範圍：315-1150626、313-1150628、318-1150630。2026/7/21 食藥署「食品風險評估諮議會」決定：19 批預防性下架油品及下游相關產品檢驗合格，即日起重新上架。第二層＝下游加工品：受影響產品累計逾 440 項、波及逾 400 家業者。2026/7/21 完成全批檢驗，使用合格批次原料之下游產品已陸續恢復上架；使用 8 批不合格批次原料之產品維持下架並啟動銷毀程序。名單以食藥署『中聯油脂案專區』為準（每日 14 時更新）",
+  "disclaimer": "本頁為公開官方公告與品牌聲明之整理，非官方網站；查無結果≠保證安全，僅代表不在已公開名單中。一切以食藥署與各品牌最新公告為準。退貨遭拒可向所在地消保官反映（消費者服務專線 1950）。註：2026/7/21 起，中聯案 30 批評估完成——19 批合格已恢復上架、8 批不可上架並銷毀、3 批管制中未出貨。若您查到的品項原料批次屬 19 批合格批次，即日起可重新上架；若屬 8 批不合格批次，維持下架銷毀。如有疑慮請洽各品牌客服或撥 1950。",
   "hotlines": [
    {
     "name": "泰山客服",
@@ -49,8 +49,20 @@
    }
   ],
   "refund_deadline": "三品牌退費受理原則至 2026/9/30（以各品牌公告為準）｜消保處：憑發票／收據／刷卡紀錄或商品本身（含已開封、空桶）即可辦理；無購買憑證亦可持使用過的容器聯繫業者",
-  "penalties": "中聯油脂裁罰 1 億 6,520 萬元（食安法史上最高）；福壽／福懋／泰山／南僑因延遲或通報不實各處 300～600 萬元不等（依主管機關公告）",
+  "penalties": "中聯油脂裁罰 1 億 6,520 萬元（食安法史上最高）；7/16 再因隱匿未通報 TFDA 另查出之 2 批超標批號（313-1150408、315-1150413）遭重罰；福壽／福懋／泰山／南僑因延遲或通報不實各處 300～600 萬元不等（依主管機關公告）",
   "sources": [
+   {
+    "name": "食藥署 7/21 公布中聯19批重新上架、8批不可上架啟動銷毀",
+    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634528"
+   },
+   {
+    "name": "食藥署 7/21 公布中聯案檢驗結果，本週提出食安法修法並完成獨立調查",
+    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634524"
+   },
+   {
+    "name": "食藥署 7/16 中聯油品隱匿未呈報下架批次予以重罰",
+    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=31599"
+   },
    {
     "name": "食藥署 7/1 新聞稿",
     "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379"
@@ -104,7 +116,8 @@
     "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488"
    }
   ],
-  "pipeline_last_run": "2026-07-21 07:34"
+  "pipeline_last_run": "2026-07-21 07:34",
+  "law_reform": "2026/7/21 衛福部草擬食安法修法：①知情不報廠商罰則上限從 300 萬調升至 3,000 萬元；②跨轄區食安事件比照流行疫情開設「食安事件指揮中心」，避免中央地方做法不一；③預防性下架、重新上架制度法制化寫入食安法"
  },
  "official_docs": [
   {
@@ -132,13 +145,50 @@
   {
    "tier": 1,
    "brand": "中聯油脂",
-   "product": "2026 年 4～6 月所有油品及製成品（29 批盤點）",
-   "spec": "5 批確認超標／3 批未出貨／21 批已分送泰山・福壽・福懋",
-   "batch": "強制下架且不得重新上架之 5 批號：315-1150404、318-1150406、314-1150410、315-1150510、313-1150512",
-   "status": "5 批確認超標→強制下架、永不得回架；其餘 4～6 月中聯油品自 2026/7/10 中午 12 時起全面預防性下架，須檢驗合格才可恢復上架。中聯於超標原因查明並確認改善前不得復產",
+   "product": "大豆沙拉油（原料油）",
+   "spec": "散裝",
+   "batch": "批號 313-1150408｜製造 2026-04-08",
+   "status": "TFDA 查出超標（中聯隱匿未通報）｜7批不可上架批號之一、不得重新上架、啟動銷毀",
+   "status_note": "⚠️ 7/16 新增：此批由 TFDA 主動查出，中聯原未通報。下游導致泰山不飽和調合油終端產品超標。7/21 列入永久不得上架並啟動銷毀。",
+   "maker": "中聯油脂",
+   "refund": "B2B 原料——消費者請向下游品牌辦理退費（泰山 0800-079080）",
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634528"
+  },
+  {
+   "tier": 1,
+   "brand": "中聯油脂",
+   "product": "大豆沙拉油（原料油）",
+   "spec": "散裝",
+   "batch": "批號 315-1150413｜製造 2026-04-13",
+   "status": "TFDA 查出超標（中聯隱匿未通報）｜7批不可上架批號之一、不得重新上架、啟動銷毀",
+   "status_note": "⚠️ 7/16 新增：此批由 TFDA 主動查出，中聯原未通報。下游波及泰山／福壽／福懋。7/21 列入永久不得上架並啟動銷毀。",
    "maker": "中聯油脂",
    "refund": "B2B 原料——消費者請向下游品牌辦理退費（泰山 0800-079080／福壽 0800-236699／福懋 0800-888255）",
-   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488"
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634528"
+  },
+  {
+   "tier": 1,
+   "brand": "中聯油脂",
+   "product": "大豆沙拉油（原料油，外銷）",
+   "spec": "外銷為主，無留樣檢體",
+   "batch": "批號 319-1150613",
+   "status": "無留樣檢體無法送驗｜不得恢復上架、啟動銷毀",
+   "status_note": "7/21 列入不可上架範圍（非超標、但無法驗證合格）。以外銷為主，未進零售，消費者影響有限。",
+   "maker": "中聯油脂",
+   "refund": "主要為外銷用途，消費者影響有限；如有疑慮撥 1950",
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634528"
+  },
+  {
+   "tier": 1,
+   "brand": "中聯油脂",
+   "product": "2026 年 4～6 月所有油品及製成品（30 批盤點）",
+   "spec": "7批確認超標（5業者通報＋2 TFDA查出）＋1批無檢體＝8批不可上架；19批合格已重新上架；3批未出貨管制中",
+   "batch": "不可上架8批：315-1150404、318-1150406、314-1150410、315-1150510、313-1150512（業者通報）；313-1150408、315-1150413（TFDA查出）；319-1150613（無檢體）｜管制中未出貨3批：315-1150626、313-1150628、318-1150630｜合格重新上架19批：314-1150401等（詳見食藥署 t634528 公告）",
+   "status": "7批確認超標→強制下架、永不得回架並啟動銷毀；1批無檢體→不得上架並啟動銷毀；19批合格→自2026/7/21起重新上架；3批未出貨→持續管制、不在本次上架範圍。中聯於超標原因查明並確認改善前不得復產",
+   "maker": "中聯油脂",
+   "refund": "B2B 原料——消費者請向下游品牌辦理退費（泰山 0800-079080／福壽 0800-236699／福懋 0800-888255）",
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634528",
+   "status_note": "7/21 大幅更新：原5批擴至8批不可上架（含TFDA查出2批）；19批合格即日起重新上架。"
   },
   {
    "tier": 1,
@@ -149,7 +199,8 @@
    "status": "確認超標（BaP 8.1 µg/kg，限量 2.0）｜5 個強制下架批號之一、不得重新上架",
    "maker": "中聯油脂",
    "refund": "B2B 原料——消費者請向下游品牌辦理退費",
-   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379"
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634379",
+   "status_note": "✅ 7/21 確認：原料批號已確認 BaP 超標，列入 8 批不可上架，維持永久下架並啟動銷毀。"
   },
   {
    "tier": 1,
@@ -160,7 +211,8 @@
    "status": "官方令下架回收",
    "maker": "泰山企業",
    "refund": "不限批號：2026/4～6 月購買皆可退（至 9/30）｜表單 forms.gle/9rnmkxBZXuFSoeHF7｜0800-079080，無發票可到府收件",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -171,18 +223,20 @@
    "status": "官方令下架回收",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法（不限批號、至 9/30）",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
    "brand": "泰山",
    "product": "不飽和大豆沙拉油（新版）",
    "spec": "2.6L×6",
-   "batch": "批號 2027040901",
-   "status": "官方令下架回收",
+   "batch": "批號 2027040901｜原料溯及中聯 TFDA 查出批號 313-1150408",
+   "status": "確認超標（原料中聯 313-1150408，TFDA 查出 BaP 超標，中聯隱匿未通報）｜強制下架、不得重新上架、啟動銷毀",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634528",
+   "status_note": "✅ 7/21 確認：原料批號已確認 BaP 超標，列入 8 批不可上架，維持永久下架並啟動銷毀。"
   },
   {
    "tier": 1,
@@ -193,7 +247,8 @@
    "status": "官方令下架回收",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -204,7 +259,8 @@
    "status": "官方令下架回收",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -215,7 +271,8 @@
    "status": "確認超標（泰山自主送驗 BaP 2.5 µg/kg，原料為中聯第二批號 313-1150512）｜已於 7/3 前預防性下架、市面已無販售",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "✅ 7/21 確認：原料批號已確認 BaP 超標，列入 8 批不可上架，維持永久下架並啟動銷毀。"
   },
   {
    "tier": 1,
@@ -226,7 +283,8 @@
    "status": "官方令下架回收",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -237,7 +295,8 @@
    "status": "官方令下架回收",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法（OK 超商購買可憑發票退）",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -248,7 +307,8 @@
    "status": "官方令下架回收",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -259,7 +319,8 @@
    "status": "確認超標（泰山自主送驗 BaP 2.5 µg/kg，原料為中聯第二批號 313-1150512）｜已於 7/3 前預防性下架、市面已無販售",
    "maker": "泰山企業",
    "refund": "同泰山退費辦法",
-   "source": "https://www.taisun.com.tw/260702/"
+   "source": "https://www.taisun.com.tw/260702/",
+   "status_note": "✅ 7/21 確認：原料批號已確認 BaP 超標，列入 8 批不可上架，維持永久下架並啟動銷毀。"
   },
   {
    "tier": 1,
@@ -270,7 +331,8 @@
    "status": "官方令下架回收",
    "maker": "福壽實業",
    "refund": "0800-236699｜開封/空桶皆可退｜五股・沙鹿總部・台中港廠・橋頭・大社五據點或到府收件（運費公司付）｜至 9/30",
-   "source": "https://www.fwusow.com.tw/index.php/news/item/2306"
+   "source": "https://www.fwusow.com.tw/index.php/news/item/2306",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -281,7 +343,8 @@
    "status": "官方令下架回收（僅售企業端，未進零售）",
    "maker": "福壽實業",
    "refund": "同福壽退費辦法",
-   "source": "https://www.fwusow.com.tw/index.php/news/item/2306"
+   "source": "https://www.fwusow.com.tw/index.php/news/item/2306",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -292,7 +355,8 @@
    "status": "官方令下架回收",
    "maker": "福壽實業",
    "refund": "同福壽退費辦法",
-   "source": "https://www.fwusow.com.tw/index.php/news/item/2306"
+   "source": "https://www.fwusow.com.tw/index.php/news/item/2306",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -303,7 +367,8 @@
    "status": "官方令下架回收",
    "maker": "福懋油脂",
    "refund": "0800-888255｜憑問題批次空桶退款，未用完先致電確認｜至 9/30",
-   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source="
+   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source=",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -314,7 +379,8 @@
    "status": "官方令下架回收",
    "maker": "福懋油脂",
    "refund": "同福懋退費辦法",
-   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source="
+   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source=",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -325,7 +391,8 @@
    "status": "官方令下架回收",
    "maker": "福懋油脂",
    "refund": "同福懋退費辦法",
-   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source="
+   "source": "https://www.fopco.com.tw/News_Detail.php?ADKey=1&CataP=378&page=&Source=",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -336,7 +403,8 @@
    "status": "官方令下架回收",
    "maker": "福懋油脂",
    "refund": "B2B 散裝，向福懋洽退",
-   "source": "https://health.tvbs.com.tw/nutrition/364121"
+   "source": "https://health.tvbs.com.tw/nutrition/364121",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，若本產品所用原料屬 19 批合格批次，即日起可重新上架。如有疑慮請洽業者客服或撥 1950。"
   },
   {
    "tier": 1,
@@ -347,7 +415,8 @@
    "status": "確認超標：所用中聯原料檢出 BaP 2.9 µg/kg｜強制下架、不得重新上架｜該批號受影響產品 16 項、已下架回收 319.6 公噸",
    "maker": "南僑油脂",
    "refund": "多為烘焙/餐飲用，洽業者",
-   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488"
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488",
+   "status_note": "✅ 7/21 確認：原料批號已確認 BaP 超標，列入 8 批不可上架，維持永久下架並啟動銷毀。"
   },
   {
    "tier": 1,
@@ -358,7 +427,8 @@
    "status": "確認超標（BaP 4.3 µg/kg）｜強制下架、不得重新上架｜該批號受影響產品 14 項、已下架回收 243.6 公噸",
    "maker": "福壽實業",
    "refund": "同福壽退費辦法：0800-236699｜開封/空桶皆可退｜至 9/30",
-   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488"
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488",
+   "status_note": "✅ 7/21 確認：原料批號已確認 BaP 超標，列入 8 批不可上架，維持永久下架並啟動銷毀。"
   },
   {
    "tier": 1,
@@ -369,7 +439,8 @@
    "status": "確認超標（BaP 3.8 µg/kg）｜強制下架、不得重新上架｜該批號受影響油品 24 品項、已下架回收 162.4 公噸",
    "maker": "福壽實業",
    "refund": "同福壽退費辦法：0800-236699｜開封/空桶皆可退｜至 9/30",
-   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488"
+   "source": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488",
+   "status_note": "✅ 7/21 確認：原料批號已確認 BaP 超標，列入 8 批不可上架，維持永久下架並啟動銷毀。"
   },
   {
    "tier": 2,
@@ -380,7 +451,8 @@
    "status": "業者預防性自主回收（非官方強制）",
    "maker": "味王",
    "refund": "依業者公告",
-   "source": "https://www.cna.com.tw/news/ahel/202607030268.aspx"
+   "source": "https://www.cna.com.tw/news/ahel/202607030268.aspx",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -391,7 +463,8 @@
    "status": "指定批號商品下架停售並啟動回收",
    "maker": "聯華食品",
    "refund": "憑證至原購買超商/通路辦理退換貨",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -402,7 +475,8 @@
    "status": "業者主動回收，未出貨 544 盒工廠匡列",
    "maker": "老協珍",
    "refund": "依業者公告辦理退換",
-   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543"
+   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -413,7 +487,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "味全食品",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -424,7 +499,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "廣達香食品",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -435,7 +511,8 @@
    "status": "業者主動回收",
    "maker": "桂冠實業",
    "refund": "客服 0800-031-720，憑憑證退費或換貨",
-   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543"
+   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -446,7 +523,8 @@
    "status": "零售商品通知通路全面下架、門市停用",
    "maker": "王品集團",
    "refund": "依王品公告",
-   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543"
+   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -457,7 +535,8 @@
    "status": "全面自主回收下架，總公司統一銷毀",
    "maker": "路易莎",
    "refund": "依路易莎公告",
-   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543"
+   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -468,7 +547,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "享記食品",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -479,7 +559,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "金福華",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -490,7 +571,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "明德食品",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -501,7 +583,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "味源",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -512,7 +595,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "隆盛食品冷凍",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -523,7 +607,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "惠眾食品工業",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -534,7 +619,8 @@
    "status": "食藥署明細列入，市售分裝油預防性下架",
    "maker": "維義事業",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -545,7 +631,8 @@
    "status": "食藥署明細列入，預防性下架",
    "maker": "崁頂義豐麻油廠",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.businessweekly.com.tw/focus/blog/3021862"
+   "source": "https://www.businessweekly.com.tw/focus/blog/3021862",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -556,7 +643,8 @@
    "status": "列於食藥署明細；業者聲明零售商品未涉本次原料、無需下架——以官方最新公告為準",
    "maker": "聯合利華",
    "refund": "如有疑慮撥 1950 或洽業者客服",
-   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543"
+   "source": "https://www.foodnext.net/news/newssafe/paper/6851177543",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -567,7 +655,8 @@
    "status": "7/8 食藥署明細新增，預防性下架",
    "maker": "卜蜂企業",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://udn.com/news/story/124940/9609134"
+   "source": "https://udn.com/news/story/124940/9609134",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -578,7 +667,8 @@
    "status": "7/8 食藥署明細新增，預防性下架",
    "maker": "金色三麥",
    "refund": "依業者公告；不確定可撥 1950",
-   "source": "https://udn.com/news/story/124940/9609134"
+   "source": "https://udn.com/news/story/124940/9609134",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   },
   {
    "tier": 2,
@@ -589,15 +679,28 @@
    "status": "7/8 食藥署明細新增，預防性下架",
    "maker": "屏榮食品",
    "refund": "憑發票至原購買通路退換；不確定可撥 1950",
-   "source": "https://www.storm.mg/lifestyle/11147131"
+   "source": "https://www.storm.mg/lifestyle/11147131",
+   "status_note": "⚠️ 7/21 更新：中聯案 30 批評估完成，使用合格批次原料之下游產品已陸續恢復上架。如需確認本產品狀態，請洽原購買通路或撥 1950。"
   }
  ],
  "auto_feed": [
   {
+   "title": "食藥署公布中聯油脂19批預防性下架油品及其相關產品重新上架",
+   "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634528",
+   "date": "2026/07/21",
+   "collected_at": "2026-07-21 手動補入",
+   "brands": [
+    "中聯",
+    "泰山",
+    "福壽",
+    "福懋"
+   ]
+  },
+  {
    "title": "食藥署公布中聯油脂事件檢驗結果 本週提出食安法修法，並完成獨立調查",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634524",
-   "date": "",
-   "collected_at": "2026-07-21 07:34",
+   "date": "2026/07/21",
+   "collected_at": "2026-07-21 手動補入",
    "brands": [
     "中聯"
    ]
@@ -606,7 +709,7 @@
    "title": "中聯油品隱匿未呈報下架批次，予以重罰",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=31599",
    "date": "2026/07/16",
-   "collected_at": "2026-07-17 07:30",
+   "collected_at": "2026-07-21 手動補入",
    "brands": [
     "中聯"
    ]
