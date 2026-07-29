@@ -116,7 +116,7 @@
     "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634488"
    }
   ],
-  "pipeline_last_run": "2026-07-29 07:33",
+  "pipeline_last_run": "2026-07-30 07:35",
   "law_reform": "2026/7/21 衛福部草擬食安法修法：①知情不報廠商罰則上限從 300 萬調升至 3,000 萬元；②跨轄區食安事件比照流行疫情開設「食安事件指揮中心」，避免中央地方做法不一；③預防性下架、重新上架制度法制化寫入食安法"
  },
  "official_docs": [
@@ -684,6 +684,15 @@
   }
  ],
  "auto_feed": [
+  {
+   "title": "食藥署擴大抽驗3家大豆油煉油廠30件油品全數符合規定，及「中聯油脂股份有限公司大豆油苯(a)駢芘超標事件」調查報告已公開食藥署官網專區",
+   "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634555",
+   "date": "",
+   "collected_at": "2026-07-30 07:35",
+   "brands": [
+    "中聯"
+   ]
+  },
   {
    "title": "食藥署公布中聯油脂事件第三方獨立調查結果 修法強化製程管理、品質管理及數位治理",
    "url": "https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&id=t634544",
