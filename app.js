@@ -133,7 +133,7 @@
   // v5 搜尋核心：欄位「串接」後比對（「泰山沙拉油」可跨品牌＋品名欄命中）
   //             ＋空格分詞 AND（「福壽 香油」兩個詞都要出現才算中）
   function itemHay(i) {
-    return norm([i.brand, i.product, i.spec, i.batch, i.maker, i.status].join(''));
+    return norm([i.brand, i.product, i.spec, i.batch, i.maker, i.status, i.refund, i.status_note].join(''));
   }
   function tokenHit(hay, t) {
     if (hay.indexOf(t) !== -1) return true;
@@ -212,10 +212,11 @@
         + docHits.map(docCard).join('')
       : '';
     $('frc-results').innerHTML = list.map(function (i) {
-      var b = i.tier === 1 ? '<span class="bdg b1">🔴 官方下架回收</span>' : '<span class="bdg b2">🟡 業者自主回收</span>';
+      var b = (i.tier === 1 ? '<span class="bdg b1">🔴 官方下架回收</span>' : '<span class="bdg b2">🟡 業者自主回收</span>') + (i.case ? '&nbsp;<span class="bdg b3" style="font-size:11px">🫒 ' + i.case + '</span>' : '');
       return '<div class="card"><div class="top"><h3>' + i.brand + '｜' + i.product + (i.spec ? '（' + i.spec + '）' : '') + '</h3>' + b + '</div>'
         + '<div class="mt">' + i.status + '｜製造/供應：' + i.maker + '</div>'
         + (i.batch ? '<div class="bt">🔍 ' + i.batch + '</div>' : '')
+        + (i.status_note ? '<div class="autonote">📅 ' + i.status_note + '</div>' : '')
         + (i.refund ? '<div class="rf">💰 退費：' + i.refund + '</div>' : '')
         + '<div class="sc"><a href="' + i.source + '" target="_blank" rel="noopener">來源公告 ↗</a>'
         + (FORM_URL ? '　·　<a href="' + reportUrl(i.brand + '｜' + i.product, '名單資訊有誤') + '" target="_blank" rel="noopener" style="color:var(--sub)">🙋 回報此筆有誤</a>' : '')
